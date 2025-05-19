@@ -1,0 +1,17 @@
+dep ncurses
+dep sfml-network
+dep sfml-system
+cdir obj
+cdir build/
+adddir obj/
+adddir build/
+
+include main.cpp
+
+build client
+
+rmbuild /
+
+include server.cpp
+
+build server
