@@ -1,12 +1,12 @@
 #include <iostream>
 #include <SFML/Network.hpp>
 #include <thread>
-#include <ncurses.h>
 
 
 int main() {
 	sf::UdpSocket socket;
-	std::optional ip = sf::IpAddress::getLocalAddress();
+	//std::optional ip = sf::IpAddress::getLocalAddress();
+	std::optional ip = sf::IpAddress::Broadcast;
 	unsigned short pr = 54024;
 	unsigned int serverGet = 54020;
 
@@ -20,11 +20,8 @@ int main() {
 	std::string buff3;
 	char message[100] = "Hello";
 	int x, y;
-	char get = getch();
 	
 	socket.setBlocking(false);
-	initscr();
-	refresh();
 	while(1){
 		sf::Socket::Status s = socket.receive(buf, sizeof(buf), rec, ip, pr);
 
@@ -37,12 +34,8 @@ int main() {
 		//if(buff3 != buf2) {
 		if(s == sf::Socket::Status::Done) {
 		buff3 = buf2;
-		//std::cout << "Server: "<< buf2 << "\n";
-		mvprintw(y, x, "Server: %s\n", buf2);
-		getyx(stdscr, y, x);
-		mvprintw(20, 0, "Message: %s", message);
+		std::cout << "Server: "<< buf2 << "\n";
 		//socket.send("hi", 3, ip.value(), serverGet);
-		refresh();
 		}
 		}
 }

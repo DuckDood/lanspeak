@@ -5,7 +5,8 @@ int main() {
 	sf::UdpSocket socket;
 	unsigned int pr = 54024;
 	unsigned short int serverGet = 54020;
-	std::optional ip = sf::IpAddress::getLocalAddress();
+	//std::optional ip = sf::IpAddress::getLocalAddress();
+	std::optional ip = sf::IpAddress::Broadcast;
 	std::vector<short unsigned int> portList;
 
 	pr = 54024;
