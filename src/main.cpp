@@ -34,7 +34,7 @@ int main() {
 		//if(buff3 != buf2) {
 		if(s == sf::Socket::Status::Done) {
 		buff3 = buf2;
-		std::cout << "Server: "<< buf2 << "\n";
+		std::cout << buf2 << "\n";
 		//socket.send("hi", 3, ip.value(), serverGet);
 		}
 		}

@@ -23,9 +23,13 @@ int main() {
 	size_t rec;
 	char buff[100];
 	char bf2[100];
+	std::string name = "";
+	std::cout << "Whats to name? ";
+	std::getline(std::cin, name);
 	socket.setBlocking(false);
 	while(1) {
 		std::getline(std::cin, buf);
+		buf = name + ": " + buf;
 		if(buf == "newclient") {
 			portList.clear();
 	pr = 54024;
