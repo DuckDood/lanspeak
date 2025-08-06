@@ -29,7 +29,6 @@ int main() {
 	socket.setBlocking(false);
 	while(1) {
 		std::getline(std::cin, buf);
-		buf = name + ": " + buf;
 		if(buf == "newclient") {
 			portList.clear();
 	pr = 54024;
@@ -43,6 +42,8 @@ int main() {
 	}
 
 		}
+
+		buf = name + ": " + buf;
 		for(int i = 0; i < portList.size(); i++) {
 			socket.send(buf.c_str(), buf.size(), ip.value(), portList.at(i));
 		}
